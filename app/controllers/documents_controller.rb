@@ -1,7 +1,7 @@
 class DocumentsController < ApplicationController
 
   def index
-    @documents = Document.all
+    @documents = Documents.all
     render json: @documents, include: [:resources]
   end
 

@@ -1,7 +1,7 @@
 class ResourcesController < ApplicationController
 
   def index
-    @resources = Resource.all
+    @resources = current_user.resources
     render json: @resources, include: [ :documents, :categories, :users]
   end
 
