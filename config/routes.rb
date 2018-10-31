@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
     #need to create quiz routes
 
+
   namespace :api do
     namespace :v1 do
       resources :users, only: [:create]
@@ -10,8 +11,8 @@ Rails.application.routes.draw do
       get '/profile', to: 'users#profile'
     end
   end
-
-  resources :resources, only:[:index, :update, :destroy]
+  get '/filtered_resources', to: 'resources#filtered_resources'
+  resources :resources, only:[:index, :show, :update, :destroy]
   resources :categories, only:[:index]
   resources :documents, only:[:index]
 
