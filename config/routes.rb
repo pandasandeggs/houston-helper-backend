@@ -3,7 +3,6 @@ Rails.application.routes.draw do
 
     #need to create quiz routes
 
-
   namespace :api do
     namespace :v1 do
       resources :users, only: [:create]
