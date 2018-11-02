@@ -11,6 +11,12 @@ class Api::V1::AuthController < ApplicationController
     end
   end
 
+  def destroy
+    @user = User.find_by(username: user_login_params[:username])
+    @token = encode_token({user_id: @user.id})
+    @token.destroy
+  end
+
   private
   def user_login_params
     params.permit(:id, :username, :password)
