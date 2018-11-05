@@ -8,7 +8,7 @@ Rails.application.routes.draw do
       resources :users, only: [:create]
       post '/login', to: 'auth#create'
       get '/profile', to: 'users#profile'
-      get '/logout', to: 'auth#destroy'
+      delete '/logout', to: 'auth#destroy'
     end
   end
   get '/filtered_resources', to: 'resources#filtered_resources'
@@ -16,5 +16,6 @@ Rails.application.routes.draw do
   resources :categories
   resources :document
   post '/user_resources', to: 'user_resources#create'
+  post '/user_categories', to: 'user_categories#create'
 
 end
