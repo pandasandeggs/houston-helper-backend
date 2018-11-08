@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :users, only: [:create]
+      resources :users, only: [:create, :update]
       post '/login', to: 'auth#create'
       get '/profile', to: 'users#profile'
       delete '/logout', to: 'auth#destroy'
@@ -18,6 +18,5 @@ Rails.application.routes.draw do
   resources :categories
   resources :document
   post '/user_resources', to: 'user_resources#create'
-  post '/user_categories', to: 'user_categories#create'
 
 end
