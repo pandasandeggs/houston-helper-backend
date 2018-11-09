@@ -5,7 +5,6 @@ class User < ApplicationRecord
   validates :email, presence: true
   validates :email, uniqueness: true
   validates :password, confirmation: true
-  validates :password_confirmation, presence: true
   has_many :user_resources
 	has_many :resources, through: :user_resources
 	has_many :user_categories
