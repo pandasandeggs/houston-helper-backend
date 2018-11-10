@@ -3,8 +3,6 @@ Rails.application.routes.draw do
   get 'answers/index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-    #need to create quiz routes
-
   namespace :api do
     namespace :v1 do
       resources :users, only: [:create, :update]
@@ -13,10 +11,11 @@ Rails.application.routes.draw do
       delete '/logout', to: 'auth#destroy'
     end
   end
-  get '/filtered_resources', to: 'resources#filtered_resources'
+
   resources :resources
   resources :categories
   resources :document
+  resources :user_resources
   post '/user_resources', to: 'user_resources#create'
 
 end

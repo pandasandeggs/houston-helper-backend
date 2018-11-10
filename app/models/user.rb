@@ -9,4 +9,5 @@ class User < ApplicationRecord
 	has_many :resources, through: :user_resources
 	has_many :user_categories
 	has_many :categories, through: :user_categories
+  has_many :suggested_resources, through: :categories, source: :resources
 end

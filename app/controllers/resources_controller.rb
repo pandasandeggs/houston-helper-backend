@@ -5,9 +5,4 @@ class ResourcesController < ApplicationController
     render json: @resources, include: [:documents, :categories, :users]
   end
 
-  def filtered_resources
-    @resources = current_user.resources
-    render json: @resources, include: [:documents, :categories, :users]
-  end
-
 end

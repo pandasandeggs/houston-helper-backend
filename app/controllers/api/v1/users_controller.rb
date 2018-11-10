@@ -1,7 +1,7 @@
 class Api::V1::UsersController < ApplicationController
   skip_before_action :authorized, only: [:create]
 
-  @@user_includes = { categories:{ include: [:resources] }, resources:{ include: [:documents, :categories]}}
+  @@user_includes = { categories:{ include: [:resources] }, suggested_resources:{ include: [:categories]}, resources:{ include: [:documents, :categories]}}
 
   def profile
     render json: { user: current_user }, include: @@user_includes, status: :accepted
