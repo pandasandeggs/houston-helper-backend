@@ -9,5 +9,11 @@ class User < ApplicationRecord
 	has_many :resources, through: :user_resources
 	has_many :user_categories
 	has_many :categories, through: :user_categories
-  has_many :suggested_resources, through: :categories, source: :resources
+  has_many :suggested_resources_all, through: :categories, source: :resources
+
+  def suggested_resources
+    self.suggested_resources_all.uniq
+  end
+
+
 end

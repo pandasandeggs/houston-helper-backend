@@ -21,7 +21,7 @@ class Api::V1::UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user == current_user
       @user.update(user_params)
-      render json: { user: @user, jwt: @token }, include: { categories:{}, resources:{include:[:documents]}}, status: :accepted
+      render json: { user: @user, jwt: @token }, include: { categories:{}, suggested_resources:{}, resources:{include:[:documents]}}, status: :accepted
     else
       render json: { message: 'You are not authorized to edit this user.'}, status: :unauthorized
     end
