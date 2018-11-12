@@ -27,9 +27,15 @@ class Api::V1::UsersController < ApplicationController
     end
   end
 
+  def remove_resource
+    user_resource = UserResource.find_by(user_id:params[:user_id], resource_id:params[:resource_id])
+    user_resource.destroy
+    render json: user_resource
+  end
+
   private
   def user_params
-    params.permit(:username, :email, :password, :password_confirmation, category_ids: [] )
+    params.permit(:username, :email, :password, :password_confirmation, category_ids: [])
   end
 
 end

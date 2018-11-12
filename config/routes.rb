@@ -5,10 +5,11 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :users, only: [:create, :update]
+      resources :users, only: [:create, :update, :destroy]
       post '/login', to: 'auth#create'
       get '/profile', to: 'users#profile'
       delete '/logout', to: 'auth#destroy'
+      delete '/users/:user_id/resources/:resource_id', to: 'users#remove_resource'
     end
   end
 
