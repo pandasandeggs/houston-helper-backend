@@ -15,5 +15,4 @@ class User < ApplicationRecord
     self.suggested_resources_all.uniq
   end
 
-
 end
