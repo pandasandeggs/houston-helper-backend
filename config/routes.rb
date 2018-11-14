@@ -12,7 +12,7 @@ Rails.application.routes.draw do
       delete '/users/:user_id/resources/:resource_id', to: 'users#remove_resource'
     end
   end
-
+  get '/resources/:searchterm', to: 'resources#get_search_resources'
   resources :resources
   resources :categories
   resources :document
